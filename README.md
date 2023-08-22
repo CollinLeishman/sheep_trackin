@@ -16,8 +16,6 @@ This approach allows us to put all migrations (including schema changes) in the 
 - Create a migration backbone template importing peewee, db connection, and provide a warning about model redefinition
   in `app.py`.
 
-Temporary test line for creating a sheep:
-
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
   "name": "Dolly",
@@ -25,3 +23,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "gender": "female",
   "tag_number": "12345"
 }' http://localhost:5000/sheep
+
+```bash
+curl -X PUT -H "Content-Type: application/json" -d '{
+"name": "Updated Fluffy",
+"birth_date": "2023-01-02",
+"gender": "male",
+"tag_number": "67890"
+}' http://localhost:5000/sheep/1
+
+```
