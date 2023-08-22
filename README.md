@@ -24,7 +24,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "tag_number": "12345"
 }' http://localhost:5000/sheep
 
-```bash
+
 curl -X PUT -H "Content-Type: application/json" -d '{
 "name": "Updated Fluffy",
 "birth_date": "2023-01-02",

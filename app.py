@@ -30,7 +30,7 @@ def create_sheep():
     except Exception as e:
         error_message = str(e)
         response = jsonify({"error": error_message})
-        response.status_code = 500  # Set the HTTP status code to 500 (Internal Server Error)
+        response.status_code = 500
         return response
 
 
