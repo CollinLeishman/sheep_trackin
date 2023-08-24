@@ -17,6 +17,7 @@ This approach allows us to put all migrations (including schema changes) in the 
   in `app.py`.
 - Add ability to create and delete sheep
 - Check that ewe is indeed a female, ram is male and that they exist
+- Create custom css for base.html, currently going out to internet for it
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
