@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{sheep.name}}</title>
+</head>
+
+<form method="post">
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ sheep.name }}">
+    </div>
+    <div>
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" value="{{ sheep.gender }}">
+    </div>
+    <div>
+        <label for="tag_number">Tag Number:</label>
+        <input type="text" id="tag_number" name="tag_number" value="{{ sheep.tag_number }}">
+    </div>
+    <div>
+        <label for="birth_date">Birth Date:</label>
+        <input type="text" id="birth_date" name="birth_date" value="{{ sheep.birth_date }}">
+    </div>
+    <div>
+        <label for="ewe_id">Ewe ID:</label>
+        <input type="text" id="ewe_id" name="ewe_id" value="{% if sheep.ewe_id %}{{ sheep.ewe_id }}{% endif %}">
+    </div>
+    <div>
+        <label for="ram_id">Ram ID:</label>
+        <input type="text" id="ram_id" name="ram_id" value="{% if sheep.ram_id %}{{ sheep.ram_id }}{% endif %}">
+    </div>
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

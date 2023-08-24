@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sheep tracker</title>
+</head>
+<body>
+<h1>Sheep tracker</h1>
+
+<table id="data" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Tag Number</th>
+        <th>Birth Date</th>
+        <th>Ewe</th>
+        <th>Ram</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for sheep in sheeps %}
+    <tr>
+        <td><a href="http://127.0.0.1:5000/sheep/{{sheep.id}}">{{sheep.name}}</a></td>
+        <td>{{sheep.gender}}</td>
+        <td>{{sheep.tag_number}}</td>
+        <td>{{sheep.birth_date}}</td>
+        <td>{% if sheep.ewe_id %}{{ sheep.ewe_id }}{% else %}N/A{% endif %}</td>
+        <td>{% if sheep.ram_id %}{{ sheep.ram_id }}{% else %}N/A{% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<hr>
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</body>
+</html>
+{% endblock %}
