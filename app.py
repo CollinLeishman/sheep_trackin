@@ -47,8 +47,8 @@ def edit_sheep(id):
             'gender': request.form['gender'],
             'tag_number': request.form['tag_number'],
             'birth_date': request.form['birth_date'],
-            'ewe_id': request.form['ewe_id'] if request.form['ewe_id'] != 'None' else None,
-            'ram_id': request.form['ram_id'] if request.form['ram_id'] != 'None' else None,
+            'ewe_id': request.form['ewe_id'] if request.form['ewe_id'] else None,
+            'ram_id': request.form['ram_id'] if request.form['ram_id'] else None,
         }
         for key, value in updated_values.items():
             setattr(sheep, key, value)
