@@ -15,6 +15,8 @@ This approach allows us to put all migrations (including schema changes) in the 
 
 - Create a migration backbone template importing peewee, db connection, and provide a warning about model redefinition
   in `app.py`.
+- Add ability to create and delete sheep
+- Check that ewe is indeed a female, ram is male and that they exist
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
