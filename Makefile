@@ -20,5 +20,5 @@ migration:
 migrate_latest:
 	@for file in migrations/*; do \
   echo "Executing $$file"; \
-  $(PYTHON_VENV_PATH) $$file; \
+  $(PYTHON_VENV_PATH)/bin/python $$file; \
   done

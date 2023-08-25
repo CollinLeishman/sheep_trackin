@@ -23,22 +23,4 @@ This approach allows us to put all migrations (including schema changes) in the 
   in `app.py`.
 - Add ability to create and delete sheep
 - Check that ewe is indeed a female, ram is male and that they exist
-- Create custom css for base.html, currently going out to internet for it
-
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{
-  "name": "Dolly",
-  "birth_date": "2023-01-01",
-  "gender": "female",
-  "tag_number": "12345"
-}' http://localhost:5000/sheep
-
-
-curl -X PUT -H "Content-Type: application/json" -d '{
-"name": "Updated Fluffy",
-"birth_date": "2023-01-02",
-"gender": "male",
-"tag_number": "67890"
-}' http://localhost:5000/sheep/1
-
-```
+- Figure out why EMPTY is being inserted into the database instead of NULL, it should error out because of the null contraint

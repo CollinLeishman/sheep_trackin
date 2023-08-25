@@ -39,8 +39,8 @@ def get_sheep(id):
 
 
 @app.route('/sheep/<int:id>', methods=['POST'])
-# Rename to update_sheep, try to figure out how to use PUT
-def edit_sheep(id):
+# Try to figure out how to use PUT
+def update_sheep(id):
     try:
         sheep = Sheep.get_by_id(id)
         updated_values = {

@@ -16,14 +16,14 @@
         <th>Gender</th>
         <th>Tag Number</th>
         <th>Birth Date</th>
-        <th>Ewe</th>
-        <th>Ram</th>
+        <th>Ewe ID</th>
+        <th>Ram ID</th>
     </tr>
     </thead>
     <tbody>
     {% for sheep in sheeps %}
     <tr>
-        <td><a href="http://127.0.0.1:5000/sheep/{{sheep.id}}">{{sheep.name}}</a></td>
+        <td>{{sheep.name}}</td>
         <td>{{sheep.gender}}</td>
         <td>{{sheep.tag_number}}</td>
         <td>{{sheep.birth_date}}</td>
@@ -32,6 +32,7 @@
         <td>
             <button class="btn btn-danger delete-sheep" data-sheep-id="{{ sheep.id }}">Delete</button>
         </td>
+        <td><a href="http://127.0.0.1:5000/sheep/{{sheep.id}}">View/Edit</a></td>
     </tr>
     {% endfor %}
     </tbody>
@@ -79,7 +80,7 @@
 
 <script>
     document.getElementById('createSheepForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
         var formData = new FormData(this);
         var payload = {};
@@ -119,7 +120,6 @@
                  window.location.href = 'http://127.0.0.1:5000';
                 })
                 .catch(error => {
-                    // Handle error or display an error message
                     console.error('Error:', error);
                 });
             }

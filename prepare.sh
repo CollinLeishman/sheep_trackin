@@ -14,7 +14,7 @@ if [ ! -f required_environment_variables ]; then
     sqlite_path=$(pwd)/sqlite.db
   fi
   touch required_environment_variables
-  echo "PYTHON_VENV_PATH==$virtual_environment_path" >> required_environment_variables
+  echo "PYTHON_VENV_PATH=$virtual_environment_path" >> required_environment_variables
   echo "DATABASE_URL=$sqlite_path" >> required_environment_variables
 fi
 
