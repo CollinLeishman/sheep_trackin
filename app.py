@@ -39,6 +39,7 @@ def get_sheep(id):
 
 
 @app.route('/sheep/<int:id>', methods=['POST'])
+# Rename to update_sheep, try to figure out how to use PUT
 def edit_sheep(id):
     try:
         sheep = Sheep.get_by_id(id)
@@ -53,36 +54,7 @@ def edit_sheep(id):
         for key, value in updated_values.items():
             setattr(sheep, key, value)
         sheep.save()
-
         return redirect(url_for('get_sheep', id=sheep.id))
-    except Sheep.DoesNotExist:
-        return jsonify({"error": "Sheep not found"}), 404
-    except Exception as e:
-        error_message = str(e)
-        return jsonify({"error": error_message}), 500
-
-
-@app.route('/sheep', methods=["POST"])
-def create_sheep():
-    try:
-        sheep_data = request.get_json(force=True)
-        sheep = Sheep(**sheep_data)
-        sheep.save()
-        return "Sheep created successfully."
-    except Exception as e:
-        error_message = str(e)
-        response = jsonify({"error": error_message})
-        response.status_code = 500
-        return response
-
-
-@app.route('/sheep/<int:id>', methods=["PUT"])
-def update_sheep(id):
-    try:
-        update_data = sheep_data = request.get_json(force=True)
-        update_query = Sheep.update(update_data).where(Sheep.id == id)
-        update_query.execute()
-        return jsonify(sheep_data)
     except Sheep.DoesNotExist:
         return jsonify({"error": "Sheep not found"}), 404
     except Exception as e:
@@ -100,3 +72,20 @@ def delete_sheep(id):
     except Exception as e:
         error_message = str(e)
         return jsonify({"error": error_message}), 500
+
+
+@app.route('/sheep', methods=["POST"])
+def create_sheep():
+    try:
+        sheep_data = request.get_json(force=True)
+        if not sheep_data['name']:
+            return jsonify({"error": "No sheep name provided."}), 400
+        sheep = Sheep(**sheep_data)
+        sheep.save()
+        response_data = {"message": "Sheep created successfully.", "id": sheep.id}
+        return jsonify(response_data)
+    except Exception as e:
+        error_message = str(e)
+        response = jsonify({"error": error_message})
+        response.status_code = 500
+        return response

@@ -1,3 +1,5 @@
 required_environment_variables
 __pycache__
 sqlite.db
+pyvenv.cfg
+venv

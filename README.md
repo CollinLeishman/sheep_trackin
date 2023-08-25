@@ -1,5 +1,11 @@
 # Sheep Tracker
 
+## Running the app
+
+It only runs locally. Run the prepare.sh script, source the virtual environment, then make migrate_latest, and run make
+start_app.
+
+```bash
 ## Migrations
 
 Peewee doesn't support database versioning natively, so I've implemented it because they're useful for collaboration.
