@@ -24,3 +24,4 @@ This approach allows us to put all migrations (including schema changes) in the 
 - Add ability to create and delete sheep
 - Check that ewe is indeed a female, ram is male and that they exist
 - Figure out why EMPTY is being inserted into the database instead of NULL, it should error out because of the null contraint
+- Consolidate url redirect logic, a bunch is happening in javascript, some in app.py
